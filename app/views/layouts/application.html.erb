@@ -13,7 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
+    <%= javascript_include_tag "application" %>
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -35,7 +35,7 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
+    
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -46,10 +46,12 @@
           </a>
           <a class="brand" href="#">GrepCom</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
+            <ul class="nav" style="width:100%">
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+              <li style="float:right"><%= link_to image_tag('sign_out.png', :height => 10, :width => 30), destroy_user_session_path, :method => :delete , id: "sign_out"%> </li>
+              <li style="float:right"><%= link_to image_tag('fb_login.png'), user_omniauth_authorize_path(:facebook), id: "sign_in" %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -83,7 +85,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+
 
   </body>
 </html>
